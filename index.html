@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script src="dust-full-1.2.3.min.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="tabletop.js"></script>
+    <script src="prettylist.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="prettylist">
+    </div>
+    <script>
+      var listItemTemplate = '\
+        <h1>{casename}</h1>\
+        <h2>{datefiled}</h2>\
+        <h3>{descriptionlocation}</h3>\
+        <h4>{status}</h4>\
+        <h5>{courtandcasenumber}</h5>\
+      ';
+      var thing = PrettyList(
+        '0AiK02J6OppqxdElDaVViSFBtNVhYak5CWVNNM05EdEE',
+        '#prettylist',
+        listItemTemplate);
+    </script>
+  </body>
+</html>
