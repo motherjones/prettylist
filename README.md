@@ -1,7 +1,7 @@
 prettylist
 ==========
 
-A tool for quickly turning a spreadsheet into a list.
+Turn a spreadsheet into a list.
 
 [Demo](http://www.motherjones.com/politics/2014/04/hobby-lobby-sebelius-contraceptive-for-profit-lawsuits)
 
