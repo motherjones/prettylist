@@ -1,21 +1,27 @@
 <html>
   <head>
-    <script src="dust-full-1.2.3.min.js"></script>
-    <script src="jquery.min.js"></script>
-    <script src="tabletop.js"></script>
-    <script src="prettylist.js"></script>
-    <link href="style.css" rel="stylesheet" />
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="prettylist">
+
+    <div class="container-fluid">
+      <div id="prettylist"></div>
     </div>
+
+    <script src="js/dust-full-1.2.3.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/tabletop.js"></script>
+    <script src="js/prettylist.js"></script>
+
+
     <script>
       var listItemTemplate = '\
-        <h1>{casename}</h1>\
-        <h2>{datefiled}</h2>\
-        <h3>{descriptionlocation}</h3>\
-        <h4>{status}</h4>\
-        <h5>{courtandcasenumber}</h5>\
+        <h2>{casename} <small>{datefiled}</small></h2>\
+        <h5>{descriptionlocation}</h5>\
+        <p>{status}</p>\
+        <small>{courtandcasenumber}</small>\
       ';
       var thing = PrettyList(
         '0AiK02J6OppqxdElDaVViSFBtNVhYak5CWVNNM05EdEE',
