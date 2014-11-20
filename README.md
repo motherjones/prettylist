@@ -54,7 +54,10 @@ First, make a copy of [this example spreadsheet](https://docs.google.com/spreads
 
 In order for the prettylist to be able to read the data in your spreadsheet, you'll need to make your new spreadsheet public. Go to `File` and click on `Publish to the web,` then click on `Start publishing`. 
 
-A URL will appear. It will look something like this: `https://docs.google.com/spreadsheet/pub?key=0AuHOPshyxQGGdFJzdlAzQWtFakZCSzlvak9zMmJyeFE&output=html`
+A URL will appear. It will look something like this: 
+```
+https://docs.google.com/spreadsheet/pub?key=0AuHOPshyxQGGdFJzdlAzQWtFakZCSzlvak9zMmJyeFE&output=html
+```
 
 Copy that link. This is your spreadsheet ID or url, which you will use to connect your spreadsheet to the prettylist.
 
@@ -81,9 +84,9 @@ In order to get your data showing up in the prettylist, you'll need to edit a co
 ```
 Paste the ID or url you just copied from your spreadsheet in the place of `your_spreadsheet_url_goes_here`.
 
-Where we define the variable listItemTemplate, notice that we have some HTML with the spreadsheet column headers wrapped in {curly brackets}. This is the template for each list item. `<h2>{casename}</h2>\`, for example, will be filled with whatever you put in the rows under the casename column in your spreadsheet, and repeat that action for every row that has a case name.
+Where we define the variable listItemTemplate, notice that we have some HTML with the spreadsheet column headers wrapped in curly brackets `{}`. This is the template for each list item. `<h2>{casename}</h2>\`, for example, will be filled with whatever you put in the rows under the casename column in your spreadsheet, and repeat that action for every row that has a case name.
 
-Customize the template to match your needs, making sure your column headers are wrapped in {}. Don't forget to save your changes.
+Customize the template to match your needs, making sure your column headers are wrapped in `{}`. Don't forget to save your changes.
 
 Open index.html using a web browser and check that your data is showing up as a list.
 
