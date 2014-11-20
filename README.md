@@ -90,11 +90,11 @@ Customize the template to match your needs, making sure your column headers are 
 
 Open index.html using a web browser and check that your data is showing up as a list.
 
-**Styling the slider (optional):**
+**Styling the list (optional):**
 
 Once you've got your data showing up in the list, you can style it to your own taste. (*MoJo users* will want to stick to the default styles.)
 
-## Staging the inline-slider (for MoJo users)
+## Staging the prettylist (for MoJo users)
 
 *MoJo users:* When you're done, upload to s3 and embed in the shell [(follow this how to)](https://github.com/motherjones/story-tools#starting-a-new-project).
 
