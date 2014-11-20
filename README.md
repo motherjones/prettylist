@@ -16,7 +16,7 @@ Transform a Google Spreadsheet into a styled list. This works well if you want t
 
 *MoJo users:* Before you get started, follow [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
 
-Prettylist is like any other HTML unordered list, except each list item is automatically populated by data you'll enter into a Google Spreadsheet. This allows you to skip having to manually write out each list item manually in HTML. We'll get into details below, but in brief, you'll follow three simple steps:
+Prettylist is like any other HTML unordered list, except each list item is automatically populated by data you'll enter into a Google Spreadsheet. This allows you to skip having to manually write out each list item in HTML. We'll get into details below, but in brief, you'll follow three simple steps:
 
 * Start with a spreadsheet with some column headers and content. (**Pro tip:** Avoid putting spaces in your headers. We prefer camelCasing.)
 
