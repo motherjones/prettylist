@@ -1,9 +1,9 @@
-# prettylist
+# A Google Spreadsheet-Powered List
 
-Transform a Google Spreadsheet into a styled list. Here's an example from the wild:
+Transform a Google Spreadsheet into a styled list. This works well if you want to create a list where each list item contains multiple components, e.g. a list of state and details corresponding to each state, court cases and their statuses, and so on. Here's a screenshot of one from the wild:
 
 <p align="center">
-  <img width="50%" src="https://github.com/motherjones/prettylist/blob/master/img/screenshot.png" alt="screenshot"/>
+  <img width="75%" src="https://github.com/motherjones/prettylist/blob/master/img/screenshot.png" alt="screenshot"/>
 </p>
 
 ## Examples in the wild
@@ -16,7 +16,37 @@ Transform a Google Spreadsheet into a styled list. Here's an example from the wi
 
 *MoJo users:* Before you get started, follow [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
 
-Prettylist uses a Javascript templating language called [Dust.js](http://linkedin.github.io/dustjs/)
+Prettylist is like any other HTML unordered list, except each list item is automatically populated by data you'll enter into a Google Spreadsheet. This allows you to skip having to manually write out each list item manually in HTML. We'll get into details below, but in brief, you will:
+
+1. Start with a spreadsheet with some column headers and content. (**Pro tip:** Avoid putting spaces in your headers. We prefer camelCasing.)
+
+<p align="center">
+  <img width="75%" src="https://github.com/motherjones/prettylist/blob/master/img/spreadsheet.png" alt="screenshot"/>
+</p>
+
+2. Customize the template in your index.html file to match the headers in your spreadsheet:
+
+```
+    <script>
+      var listItemTemplate = '\
+        <h2>{casename}</h2>\
+        <p><strong>Date filed:</strong> {datefiled}</p>\
+        <p><strong>Case number:</strong> {courtandcasenumber}</p>\
+        <p><strong>About the company:</strong> {descriptionlocation}</p>\
+        <p><strong>Case status:</strong> {status}</p>\
+      ';
+      var thing = PrettyList(
+        '0AiK02J6OppqxdElDaVViSFBtNVhYak5CWVNNM05EdEE',
+        '#prettylist',
+        listItemTemplate);
+    </script>
+```
+
+3. End up with a list! It's that simple.
+
+<p align="center">
+  <img width="75%" src="https://github.com/motherjones/prettylist/blob/master/img/list.png" alt="screenshot"/>
+</p>
 
 ## Set up your Google Spreadsheet
 
