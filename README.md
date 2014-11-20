@@ -16,15 +16,15 @@ Transform a Google Spreadsheet into a styled list. This works well if you want t
 
 *MoJo users:* Before you get started, follow [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
 
-Prettylist is like any other HTML unordered list, except each list item is automatically populated by data you'll enter into a Google Spreadsheet. This allows you to skip having to manually write out each list item manually in HTML. We'll get into details below, but in brief, you will:
+Prettylist is like any other HTML unordered list, except each list item is automatically populated by data you'll enter into a Google Spreadsheet. This allows you to skip having to manually write out each list item manually in HTML. We'll get into details below, but in brief, you'll follow three simple steps:
 
-1. Start with a spreadsheet with some column headers and content. (**Pro tip:** Avoid putting spaces in your headers. We prefer camelCasing.)
+* Start with a spreadsheet with some column headers and content. (**Pro tip:** Avoid putting spaces in your headers. We prefer camelCasing.)
 
 <p align="center">
   <img width="75%" src="https://github.com/motherjones/prettylist/blob/master/img/spreadsheet.png" alt="screenshot"/>
 </p>
 
-2. Customize the template in your index.html file to match the headers in your spreadsheet:
+* Customize the template in your index.html file to match the headers in your spreadsheet:
 
 ```
     <script>
@@ -42,7 +42,7 @@ Prettylist is like any other HTML unordered list, except each list item is autom
     </script>
 ```
 
-3. End up with a list! It's that simple.
+* End up with a list! It's that simple.
 
 <p align="center">
   <img width="75%" src="https://github.com/motherjones/prettylist/blob/master/img/list.png" alt="screenshot"/>
@@ -50,7 +50,7 @@ Prettylist is like any other HTML unordered list, except each list item is autom
 
 ## Set up your Google Spreadsheet
 
-Make a copy of [this example spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0AuHOPshyxQGGdFJzdlAzQWtFakZCSzlvak9zMmJyeFE#gid=1) and move the copy into the relevant beat folder in the Mother Jones Google Drive. Rename the spreadsheet as you see fit. Change the owner of the spreadsheet to MoJo Data in `Share > Advanced`.
+First, make a copy of [this example spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0AuHOPshyxQGGdFJzdlAzQWtFakZCSzlvak9zMmJyeFE#gid=1) and move the copy into the relevant beat folder in the Mother Jones Google Drive. Rename the spreadsheet as you see fit. Change the owner of the spreadsheet to MoJo Data in `Share > Advanced`.
 
 In order for the prettylist to be able to read the data in your spreadsheet, you'll need to make your new spreadsheet public. Go to `File` and click on `Publish to the web,` then click on `Start publishing`. 
 
@@ -60,27 +60,40 @@ Copy that link. This is your spreadsheet ID or url, which you will use to connec
 
 ## Modify your project files
 
-*MoJo users:* By now you should have a local clone of this project repo on your machine. If you don't, go back and follow [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
+*MoJo users:* By now you should have a local copy of this project repo on your machine. If you don't, go back and follow [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
 
 **In your copy of index.html (required):**
 
-In order to get your data showing up in the slider, you'll need to edit a couple of lines of code in your index.html file. Paste the ID or url you just copied from your spreadsheet, and paste it in the place of public_spreadsheet_url. The code you are looking for in the index.html file looks like this:
+In order to get your data showing up in the prettylist, you'll need to edit a couple of lines of code in your index.html file. Open up index.html in a text editor and look for the script that looks like this:
 
+```
+      var listItemTemplate = '\
+        <h2>{casename}</h2>\
+        <p><strong>Date filed:</strong> {datefiled}</p>\
+        <p><strong>Case number:</strong> {courtandcasenumber}</p>\
+        <p><strong>About the company:</strong> {descriptionlocation}</p>\
+        <p><strong>Case status:</strong> {status}</p>\
+      ';
+      var thing = PrettyList(
+        'your_spreadsheet_url_goes_here',
+        '#prettylist',
+        listItemTemplate);
+```
+Paste the ID or url you just copied from your spreadsheet in the place of `your_spreadsheet_url_goes_here`.
 
-Don't forget to save your changes.
+Where we define the variable listItemTemplate, notice that we have some HTML with the spreadsheet column headers wrapped in {curly brackets}. This is the template for each list item. `<h2>{casename}</h2>\`, for example, will be filled with whatever you put in the rows under the casename column in your spreadsheet, and repeat that action for every row that has a case name.
+
+Customize the template to match your needs, making sure your column headers are wrapped in {}. Don't forget to save your changes.
+
+Open index.html using a web browser and check that your data is showing up as a list.
 
 **Styling the slider (optional):**
 
-Once you've got your data showing up in the slider, you can style it to your own taste. (*MoJo users* will want to stick to the default styles.)
+Once you've got your data showing up in the list, you can style it to your own taste. (*MoJo users* will want to stick to the default styles.)
 
-**Pro Tips:** 
+## Staging the inline-slider (for MoJo users)
 
-prettylist works best if you:
-
-
-## Formatting your spreadsheet data
-
-Back to your spreadsheet.
+*MoJo users:* When you're done, upload to s3 and embed in the shell [(follow this how to)](https://github.com/motherjones/story-tools#starting-a-new-project).
 
 ## Questions?
 
