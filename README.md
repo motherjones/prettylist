@@ -18,10 +18,6 @@ Transform a Google Spreadsheet into a styled list. Good for creating a list wher
 
 Prettylist is like any other HTML unordered list, except each list item is automatically populated by data you'll enter into a Google Spreadsheet. This allows you to skip having to manually write out each list item in HTML. Prettylist works on mobile. We'd love to see pull requests to improve on its design and code base.
 
-<p align="center">
-  <img width="75%" src="https://github.com/motherjones/prettylist/blob/master/img/list.png" alt="screenshot"/>
-</p>
-
 ## Set up your Google Spreadsheet
 
 First, make a copy of [this example spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0AuHOPshyxQGGdFJzdlAzQWtFakZCSzlvak9zMmJyeFE#gid=1) and move the copy into the relevant beat folder in the Mother Jones Google Drive. Rename the spreadsheet as you see fit. Change the owner of the spreadsheet to MoJo Data in `Share > Advanced`.
@@ -50,6 +46,7 @@ Copy that link. This is your spreadsheet ID or url, which you will use to connec
 In order to get your data showing up in the prettylist, you'll need to edit a couple of lines of code in your index.html file. Open up index.html in a text editor and look for the script that looks like this:
 
 ```
+    <script>
       var listItemTemplate = '\
         <h2>{casename}</h2>\
         <p><strong>Date filed:</strong> {datefiled}</p>\
@@ -61,12 +58,15 @@ In order to get your data showing up in the prettylist, you'll need to edit a co
         'your_spreadsheet_url_goes_here',
         '#prettylist',
         listItemTemplate);
+    </script>
 ```
 Paste the ID or url you just copied from your spreadsheet in the place of `your_spreadsheet_url_goes_here`.
 
 Where we define the variable listItemTemplate, notice that we have some HTML with the spreadsheet column headers wrapped in curly brackets `{}`. This is the template for each list item. `<h2>{casename}</h2>\`, for example, will be filled with whatever you put in the rows under the casename column in your spreadsheet, and repeat that action for every row that has a case name.
 
-Customize the template to match your needs, making sure your column headers are wrapped in `{}`. Don't forget to save your changes.
+Customize the template to match the data types in the first row of your spreadsheet. Make sure your column headers are wrapped in `{}`.
+
+Don't forget to save your changes.
 
 Open index.html using a web browser and check that your data is showing up as a list.
 
