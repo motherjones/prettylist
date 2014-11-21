@@ -1,6 +1,6 @@
 # A Google Spreadsheet-Powered List
 
-Transform a Google Spreadsheet into a styled list. This works well if you want to create a list where each list item contains multiple components, e.g. a list of state and details corresponding to each state, court cases and their statuses, and so on. Here's a screenshot of one from the wild:
+Transform a Google Spreadsheet into a styled list. Good for creating a list where each list item contains multiple components, e.g. a list of state and details corresponding to each state, court cases and their statuses, and so on. Here's a screenshot of one from the wild:
 
 <p align="center">
   <img width="75%" src="https://github.com/motherjones/prettylist/blob/master/img/screenshot.png" alt="screenshot"/>
@@ -16,33 +16,7 @@ Transform a Google Spreadsheet into a styled list. This works well if you want t
 
 *MoJo users:* Before you get started, follow [these instructions](https://github.com/motherjones/story-tools#starting-a-new-project).
 
-Prettylist is like any other HTML unordered list, except each list item is automatically populated by data you'll enter into a Google Spreadsheet. This allows you to skip having to manually write out each list item in HTML. We'll get into details below, but in brief, you'll follow three simple steps:
-
-* Start with a spreadsheet with some column headers and content. (**Pro tip:** Avoid putting spaces in your headers. We prefer camelCasing.)
-
-<p align="center">
-  <img width="75%" src="https://github.com/motherjones/prettylist/blob/master/img/spreadsheet.png" alt="screenshot"/>
-</p>
-
-* Customize the template in your index.html file to match the headers in your spreadsheet:
-
-```
-    <script>
-      var listItemTemplate = '\
-        <h2>{casename}</h2>\
-        <p><strong>Date filed:</strong> {datefiled}</p>\
-        <p><strong>Case number:</strong> {courtandcasenumber}</p>\
-        <p><strong>About the company:</strong> {descriptionlocation}</p>\
-        <p><strong>Case status:</strong> {status}</p>\
-      ';
-      var thing = PrettyList(
-        '0AiK02J6OppqxdElDaVViSFBtNVhYak5CWVNNM05EdEE',
-        '#prettylist',
-        listItemTemplate);
-    </script>
-```
-
-* End up with a list! It's that simple.
+Prettylist is like any other HTML unordered list, except each list item is automatically populated by data you'll enter into a Google Spreadsheet. This allows you to skip having to manually write out each list item in HTML. Prettylist works on mobile. We'd love to see pull requests to improve on its design and code base.
 
 <p align="center">
   <img width="75%" src="https://github.com/motherjones/prettylist/blob/master/img/list.png" alt="screenshot"/>
@@ -52,7 +26,13 @@ Prettylist is like any other HTML unordered list, except each list item is autom
 
 First, make a copy of [this example spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0AuHOPshyxQGGdFJzdlAzQWtFakZCSzlvak9zMmJyeFE#gid=1) and move the copy into the relevant beat folder in the Mother Jones Google Drive. Rename the spreadsheet as you see fit. Change the owner of the spreadsheet to MoJo Data in `Share > Advanced`.
 
-In order for the prettylist to be able to read the data in your spreadsheet, you'll need to make your new spreadsheet public. Go to `File` and click on `Publish to the web,` then click on `Start publishing`. 
+Fill the first row with headers indicating the type of data that will appear in your list, as shown below. (**Pro tip:** Avoid putting spaces in your headers. We prefer camelCasing.)
+
+<p align="center">
+  <img width="75%" src="https://github.com/motherjones/prettylist/blob/master/img/spreadsheet.png" alt="screenshot"/>
+</p>
+
+In order for prettylist to be able to read the data in your spreadsheet, you'll need to make your new spreadsheet public. Go to `File` and click on `Publish to the web,` then click on `Start publishing`. 
 
 A URL will appear. It will look something like this: 
 ```
