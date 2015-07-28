@@ -9,6 +9,7 @@ var PrettyList = (function() {
           self.makeHTML()
         },
         simpleSheet: true,
+        prettyColumnNames: false
       }
       if (this.proxy) {
         options.proxy = this.proxy;
