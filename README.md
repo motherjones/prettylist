@@ -22,7 +22,7 @@ Prettylist is like any other HTML unordered list, except each list item is autom
 
 First, make a copy of [this example spreadsheet](https://docs.google.com/spreadsheet/ccc?key=0AuHOPshyxQGGdFJzdlAzQWtFakZCSzlvak9zMmJyeFE#gid=1) and move the copy into the relevant beat folder in the Mother Jones Google Drive. Rename the spreadsheet as you see fit. Change the owner of the spreadsheet to MoJo Data in `Share > Advanced`.
 
-Fill the first row with headers indicating the type of data that will appear in your list, as shown below. (**Pro tip:** Avoid putting spaces in your headers. We prefer camelCasing.)
+Fill the first row with headers indicating the type of data that will appear in your list, as shown below. (**Pro tip:** There seem to be issues when spaces, special characters, or capital letters are included in the column headers. To avoid these issues, we recommend using all lowercase letters in your column headers.)
 
 <p align="center">
   <img width="75%" src="https://github.com/motherjones/prettylist/blob/master/img/spreadsheet.png" alt="screenshot"/>
